@@ -1,1 +1,1 @@
-worker: python3 server.py
+web: gunicorn craigslist-ropot.wsgi
