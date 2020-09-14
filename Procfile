@@ -1,1 +1,1 @@
-web: gunicorn craigslist-ropot:app
+web: gunicorn craigslist-ropot.wsgi

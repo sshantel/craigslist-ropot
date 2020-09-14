@@ -1,6 +1,7 @@
-import requests
 
 import os
+
+import requests 
 
 import slack
 from slack import WebClient
@@ -28,7 +29,7 @@ c.execute(
 )
 
 SLACK_TOKEN = os.environ["SLACK_API_TOKEN"]
-SLACK_CHANNEL = "#planter"
+SLACK_CHANNEL = "#planter_ropot"
 
 
 def craigslist_soup(region, term, parser):
@@ -47,7 +48,8 @@ c_l = craigslist_soup(region="sfbay", term="planter", parser="html.parser")
 
 
 def search_query(craigslist_soup):
-    posts = c_l.find_all("li", class_="result-row")
+    posts_full = c_l.find_all("li", class_="result-row")
+    posts = posts_full[:10]
     first_cl_result = posts
     links = []
     posting_body = []
@@ -119,4 +121,5 @@ def search_query(craigslist_soup):
 
 
 search_query(craigslist_soup)
+
 
