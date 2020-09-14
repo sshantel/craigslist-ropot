@@ -121,5 +121,6 @@ def search_query(craigslist_soup):
 
 
 search_query(craigslist_soup)
+ 
 
 
