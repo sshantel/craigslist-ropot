@@ -48,8 +48,8 @@ c_l = craigslist_soup(region="sfbay", term="planter", parser="html.parser")
 
 
 def search_query(craigslist_soup):
-    posts_full = c_l.find_all("li", class_="result-row")
-    posts = posts_full[:10]
+    posts = c_l.find_all("li", class_="result-row")
+    # posts = posts_full[:10]
     first_cl_result = posts
     links = []
     posting_body = []
