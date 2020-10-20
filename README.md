@@ -6,6 +6,7 @@
 <h4> About </h4>
 
 Utilizes Python Requests and Beautiful Soup libraries to scrape Craigslist postings by keyword search. Listings are written to CSV, and posted to a Slack channel with Slack’s API. Deployed on Heroku’s Cloud service.
+![](static/images/planter_ropot.gif "planter_ropot")
  
 <h4> External Setup </h4> 
 
