@@ -4,22 +4,11 @@
 * <a href="https://github.com/sshantel/craigslist-ropot#-external-setup-"> External Setup
 
 
-<h5> About </h5>
+<h4> About </h4>
 
 Utilizes Python Requests and Beautiful Soup libraries to scrape Craigslist postings by keyword search. Listings are written to CSV, and posted to a Slack channel with Slack’s API. Deployed on Heroku’s Cloud service.
-
-<h4> Installation </h4> 
-You must have the following installed to run Craigslist-Ropot:
-<br> 
-Slack 
-<br>
-Python3 
-<br>
-Requests Library 
-<br>
-
  
-<h4> External Setup </h4>
+<h4> External Setup </h4> 
 
 
 * Slack <a href="https://slack.com/create#email"> workspace </a> 
@@ -53,5 +42,25 @@ $ python3 scraper.py
 Listings should now be posting on the desired Slack channel, if such listings in your Craigslist region with keywords exist.
 
 <h4> Deployment </h4>
+
+1. Download and Install <a href="https://devcenter.heroku.com/articles/heroku-cli#download-and-install"> Heroku </a>
+
+2. Store the Slack API using the following command:
+```
+$ heroku config:set SLACK_API_TOKEN='INSERT-TOKEN-BETWEEN-THESE-SINGLE-QUOTES'
+```
+3. Adjust Heroku timezone according to your location(otherwise it defaults to UTC)
+```
+$ heroku config:add TZ="America/Los_Angeles"
+```
+4. Add and commit files
+5. 
+```
+$ heroku open
+```
+6. Scale worker dyno
+```
+$ heroku ps:scale worker=1
+```
 
  
