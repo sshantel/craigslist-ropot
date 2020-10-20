@@ -50,6 +50,7 @@ def craigslist_soup(region, term, last_scrape):
         title_class = post.find("a", class_="result-title hdrlnk")
         links.append(title_class["href"]) 
     for link in links: 
+        print(link)
         response_link = requests.get(url=link)
         link_soup = b_s(response_link.content, "html.parser")
         image_url = link_soup.find('img')
