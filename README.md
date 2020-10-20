@@ -54,5 +54,4 @@ Listings should now be posting on the desired Slack channel, if such listings in
 
 <h4> Deployment </h4>
 
-
-<h4> Deployment </h4>
+ 
