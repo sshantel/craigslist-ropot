@@ -27,6 +27,7 @@ def get_last_scrape():
     with open("listings.csv", newline='') as csvfile:
         last_scrape = '' 
         df = pd.read_csv('listings.csv') 
+        print(df)
         if not df.empty:   
             last_scrape = df['created'].max()  
             last_scrape = pd.to_datetime(last_scrape) 
