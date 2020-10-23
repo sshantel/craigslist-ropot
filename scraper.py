@@ -1,7 +1,6 @@
 import requests
 import os
 
-from slack import WebClient
 from bs4 import BeautifulSoup as b_s
 
 import csv
@@ -13,10 +12,22 @@ import schedule
 import sys
 import traceback
 
+from twilio.rest import Client
+
+from slack import WebClient
+
 SLACK_TOKEN = os.environ["SLACK_API_TOKEN"]
 SLACK_CHANNEL = "#planter_ropot"
 
-my_phone_number = os.environ['my_phone_number']
+twilio_api = os.environ["twilio_api"]
+twilio_auth = os.environ["twilio_auth"]
+
+account_sid = twilio_api
+auth_token = twilio_auth
+client = Client(account_sid, auth_token)
+
+my_phone_number = os.environ["my_phone_number"]
+
 
 def create_csv():
     if not os.path.isfile("listings.csv"):
@@ -166,13 +177,11 @@ def post_to_slack(result_listings):
 
 
 def send_text_message(result_listings):
-    
+
     message = client.messages.create(
-        body= item['url']
-        from_="+12054966699",
-        to="+1" + my_phone_number,
+        body=item["url"], from_="+12054966699", to="+1" + my_phone_number,
     )
-    print(message.sid) 
+    print(message.sid)
 
 
 if __name__ == "__main__":
