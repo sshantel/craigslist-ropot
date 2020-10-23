@@ -166,6 +166,16 @@ def insert_into_csv_db(result_listings):
     csvfile.close()
 
 
+def send_text_message(result_listings):
+    for item in result_listings:
+        if item["neighborhood_text"].strip() == "(Mountain View)":
+            message = client.messages.create(
+                body="There's a planter in your neighborhood!" + item["url"],
+                from_="+12054966699",
+                to="+1" + my_phone_number,
+            )
+
+
 def post_to_slack(result_listings):
     client = WebClient(SLACK_TOKEN)
     for item in result_listings:
@@ -173,19 +183,14 @@ def post_to_slack(result_listings):
         sliced_description = sliced_description[:100] + "..."
         desc = f"  {item['neighborhood_text']} | {item['created_at']} | {item['price']} | {item['title_text']} | {item['url']} | {sliced_description} | {item['jpg']} | {item['cl_id']}  "
         response = client.chat_postMessage(channel=SLACK_CHANNEL, text=desc)
-    print("End scrape {}: Got {} results".format(datetime.now(), len(result_listings)))
-
-
-def send_text_message(result_listings):
-
-    message = client.messages.create(
-        body=item["url"], from_="+12054966699", to="+1" + my_phone_number,
+    print(
+        "End Slack function {}: Got {} results".format(
+            datetime.now(), len(result_listings)
+        )
     )
-    print(message.sid)
 
 
 if __name__ == "__main__":
-    create_csv()
 
     while True:
         print(
@@ -194,12 +199,13 @@ if __name__ == "__main__":
             )
         )
         try:
+            create_csv()
             c_l = craigslist_soup(
                 region="sfbay", term="planter", last_scrape=get_last_scrape()
             )
             insert_into_csv_db(result_listings=c_l)
-            post_to_slack(result_listings=c_l)
             send_text_message(result_listings=c_l)
+            # post_to_slack(result_listings=c_l)
         except KeyboardInterrupt:
             print("Exiting....")
             sys.exit(1)
