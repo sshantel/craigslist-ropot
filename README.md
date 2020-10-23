@@ -6,8 +6,9 @@
 
 <h4> About </h4>
 
-Utilizes Python Requests and Beautiful Soup libraries to scrape Craigslist postings by keyword search. Listings are written to CSV, and posted to a Slack channel with Slack’s API. Deployed on Heroku’s Cloud service.
+Utilizes Python Requests and Beautiful Soup libraries to scrape Craigslist postings by keyword search. Listings are written to CSV, and posted to a Slack channel with Slack’s API. A text message is sent using Twilio's REST API if the listing is located in the user's city. Deployed on Heroku’s Cloud service.
 ![](static/images/planter-ropot-demo.gif)
+![](static/images/slackbot text.MOV)
 <i> Note: Per my conversation with Slack's support team, there is a bug where Slackbot posts with unfurled images show as "edited". Their team is currently working on getting this fixed.</i>
 
 <h4> External Setup </h4>
@@ -22,6 +23,7 @@ Utilizes Python Requests and Beautiful Soup libraries to scrape Craigslist posti
   - ![](static/images/add_app_slack.png "add_app_slack.png")
 - Store Slack API in secrets.sh file:
   - `export SLACK_API_TOKEN='INSERT-TOKEN-HERE'`
+  - Twilio <a href="https://www.twilio.com/docs/usage/api" REST API </a>
 
 <b> Running Craigslist-Ropot locally on your computer </b>
 
@@ -39,7 +41,7 @@ $ pip install -r requirements.txt
 
 3. For a scraping of items outside of planters in the SF Bay Area, `region` and `term` in line 149 of `scraper.py` will need to be updated to fit your desired needs. The URL in line 37 can be adjusted according to the Craigslist link you wish to scrape.
 
-4. Source the Slackbot API by running the following command:
+4. Source the Slackbot and Twilio API by running the following command:
 
 ```
 $ source secrets.sh
@@ -57,26 +59,54 @@ Listings will post on the desired Slack channel if such listings in your Craigsl
 
 1. Download and Install <a href="https://devcenter.heroku.com/articles/heroku-cli#download-and-install"> Heroku </a>
 
-2. Store the Slack API using the following command:
+2. Store the Slack and Twilio API using the following command:
 
 ```
 heroku config:set SLACK_API_TOKEN='INSERT-TOKEN-BETWEEN-THESE-SINGLE-QUOTES'
 ```
 
-3. Adjust Heroku <a href="https://help.heroku.com/JZKJJ4NC/how-do-i-set-the-timezone-on-my-dyno"> timezone </a> according to your location(otherwise it defaults to UTC)
-
 ```
-$ heroku config:add TZ="America/Los_Angeles"
+heroku config:set twilio_api='INSERT-TOKEN-BETWEEN-THESE-SINGLE-QUOTES'
 ```
 
-4. Add and commit files
-
 ```
-$ git add .
+heroku config:set twilio_auth='bb6b2125019702e46e9b2dcc0bac35d7'
 ```
 
-5. Scale worker dyno
+3. Store personal phone number:
 
 ```
-$ heroku ps:scale worker=1
+export my_phone_number='INSERT-PHONE-NUMBER-BETWEEN-THESE-SINGLE-QUOTES'
+```
+
+4. Adjust Heroku <a href="https://help.heroku.com/JZKJJ4NC/how-do-i-set-the-timezone-on-my-dyno"> timezone </a> according to your location(otherwise it defaults to UTC)
+
+```
+
+\$ heroku config:add TZ="America/Los_Angeles"
+
+```
+
+5. Add and commit files
+
+```
+
+\$ git add .
+
+```
+
+6. Scale worker dyno
+
+```
+
+\$ heroku ps:scale worker=1
+
+```
+
+```
+
+```
+
+```
+
 ```
