@@ -83,7 +83,7 @@ export my_phone_number='INSERT-PHONE-NUMBER-BETWEEN-THESE-SINGLE-QUOTES'
 
 ```
 
-\$ heroku config:add TZ="America/Los_Angeles"
+$ heroku config:add TZ="America/Los_Angeles"
 
 ```
 
@@ -91,7 +91,7 @@ export my_phone_number='INSERT-PHONE-NUMBER-BETWEEN-THESE-SINGLE-QUOTES'
 
 ```
 
-\$ git add .
+$ git add .
 
 ```
 
@@ -99,7 +99,7 @@ export my_phone_number='INSERT-PHONE-NUMBER-BETWEEN-THESE-SINGLE-QUOTES'
 
 ```
 
-\$ heroku ps:scale worker=1
+$ heroku ps:scale worker=1
 
 ```
 
