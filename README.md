@@ -76,7 +76,7 @@ heroku config:set twilio_auth='INSERT-TOKEN-BETWEEN-THESE-SINGLE-QUOTES'
 3. Store personal phone number:
 
 ```
-export my_phone_number='INSERT-PHONE-NUMBER-BETWEEN-THESE-SINGLE-QUOTES'
+heroku config:set my_phone_number='INSERT-PHONE-NUMBER-BETWEEN-THESE-SINGLE-QUOTES'
 ```
 
 4. Adjust Heroku <a href="https://help.heroku.com/JZKJJ4NC/how-do-i-set-the-timezone-on-my-dyno"> timezone </a> according to your location(otherwise it defaults to UTC)
