@@ -82,31 +82,18 @@ heroku config:set my_phone_number='INSERT-PHONE-NUMBER-BETWEEN-THESE-SINGLE-QUOT
 4. Adjust Heroku <a href="https://help.heroku.com/JZKJJ4NC/how-do-i-set-the-timezone-on-my-dyno"> timezone </a> according to your location(otherwise it defaults to UTC)
 
 ```
-
 $ heroku config:add TZ="America/Los_Angeles"
-
 ```
 
 5. Add and commit files
 
 ```
-
 $ git add .
-
 ```
 
 6. Scale worker dyno
 
 ```
-
 $ heroku ps:scale worker=1
-
-```
-
-```
-
-```
-
-```
 
 ```
