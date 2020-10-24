@@ -1,8 +1,8 @@
 ## Table of contents
 
-- <a href="https://github.com/sshantel/planter-ropot#-about-"> About
-- <a href="https://github.com/sshantel/planter-ropot#-external-setup-"> External Setup
-- <a href="https://github.com/sshantel/planter-ropot#-deployment-"> Deployment
+- <a href="https://github.com/sshantel/craigslist-ropot#-about-"> About
+- <a href="https://github.com/sshantel/craigslist-ropot#-external-setup-"> External Setup
+- <a href="https://github.com/sshantel/craigslist-ropot#-deployment-"> Deployment
 
 <h4> About </h4>
 
