@@ -70,7 +70,7 @@ heroku config:set twilio_api='INSERT-TOKEN-BETWEEN-THESE-SINGLE-QUOTES'
 ```
 
 ```
-heroku config:set twilio_auth='bb6b2125019702e46e9b2dcc0bac35d7'
+heroku config:set twilio_auth='INSERT-TOKEN-BETWEEN-THESE-SINGLE-QUOTES'
 ```
 
 3. Store personal phone number:
