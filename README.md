@@ -59,7 +59,7 @@ Listings will post on the desired Slack channel if such listings in your Craigsl
 
 1. Download and Install <a href="https://devcenter.heroku.com/articles/heroku-cli#download-and-install"> Heroku </a>
 
-2. Store the Slack and Twilio API using the following command:
+2. Store the Slack and Twilio API using the following commands:
 
 ```
 heroku config:set SLACK_API_TOKEN='INSERT-TOKEN-BETWEEN-THESE-SINGLE-QUOTES'
