@@ -6,10 +6,10 @@
 
 <h4> About </h4>
 
-<a href="https://chantelyip.com/2020/11/24/scraping-craigslist-to-find-my-perfect-planter-with-slackbot-and-twilio/"> Blog Post
+<a href="https://chantelyip.com/2020/11/24/scraping-craigslist-to-find-my-perfect-planter-with-slackbot-and-twilio/"> Blog Post </a>
 <br>
 
-<a href="https://chantelyip.com/2020/11/24/scraping-craigslist-to-find-my-perfect-planter-with-slackbot-and-twilio/"> Video
+<a href="https://chantelyip.com/2020/11/24/scraping-craigslist-to-find-my-perfect-planter-with-slackbot-and-twilio/"> Video </a>
 
 <br>
 
