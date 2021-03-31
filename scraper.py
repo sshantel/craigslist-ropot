@@ -120,8 +120,7 @@ def craigslist_soup(region, term, last_scrape):
         if pd.isnull(pd.to_datetime(last_scrape)):
             list_results.append(result_listings)
             print(
-                f"the datetime is null. Listing posted {created_at} and last scrapetime {last_scrape} so we will append this AND POST TO SLACK"
-            )
+                f"the datetime is null. Listing posted {created_at} and last scrapetime {last_scrape} so we will append this AND POST TO SLACK")
         elif pd.to_datetime(result_listings["created_at"]) > (
             pd.to_datetime(last_scrape)
         ):
@@ -168,7 +167,7 @@ def insert_into_csv_db(result_listings):
 
 def send_text_message(result_listings):
     for item in result_listings:
-        if item["neighborhood_text"].strip().lower() == "(mountain view)":
+        if item["neighborhood_text"].strip().lower() == "(san francisco)":
             message = client.messages.create(
                 body="There's a planter in your neighborhood!" + item["url"],
                 from_="+12054966699",
@@ -213,7 +212,7 @@ if __name__ == "__main__":
             print("Error with the scraping:", sys.exc_info()[0])
             traceback.print_exc()
 
-        in_ten_minutes = datetime.now() + timedelta(minutes=10)
+        in_ten_minutes = datetime.now() + timedelta(minutes=60)
         print(
             "{}: Successfully finished scraping. Next scrape will be at {} ".format(
                 time.ctime(), in_ten_minutes
